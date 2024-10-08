@@ -141,6 +141,9 @@ class Bomb:
         screen.blit(self.img, self.rct)
 
 class Score:
+    """
+    スコア表示に関するクラス
+    """
     def __init__(self, score=0):
         self.score = score
         self.font = pg.font.SysFont("hgp創英角ポップ体", 30)
@@ -198,8 +201,6 @@ def main():
 
         bombs = [bomb for bomb in bombs if bomb is not None]
         beams = [beam for beam in beams if beam is not None]
-
-        print(len(beams))
         beams = [beam for beam in beams if check_bound(beam.rct) == (True, True)]
         key_lst = pg.key.get_pressed()
         bird.update(key_lst, screen)
